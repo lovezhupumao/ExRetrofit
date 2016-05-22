@@ -3,7 +3,7 @@ package train.zpm.com.exretrofit;
 /**
  * Created by Administrator on 2016/5/22 0022.
  */
-public class HaoMa {
+public class PhoneNumInfo {
 
     /**
      * resultcode : 200

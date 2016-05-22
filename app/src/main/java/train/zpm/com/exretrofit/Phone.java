@@ -9,5 +9,5 @@ import retrofit2.http.Query;
  */
 public interface Phone {
     @GET("mobile/get")
-    Call<HaoMa> getHaoMa(@Query("phone") String phone,@Query("key") String key);
+    Call<PhoneNumInfo> getHaoMa(@Query("phone") String phone,@Query("key") String key);
 }

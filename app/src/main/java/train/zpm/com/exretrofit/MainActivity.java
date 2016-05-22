@@ -2,7 +2,6 @@ package train.zpm.com.exretrofit;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.GsonConverterFactory;
@@ -41,14 +39,14 @@ public class MainActivity extends AppCompatActivity {
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
                 Phone phone=retrofit.create(Phone.class);
-                final Call<HaoMa> call=phone.getHaoMa(meditview.getText().toString(),key);
+                final Call<PhoneNumInfo> call=phone.getHaoMa(meditview.getText().toString(), key);
 
 
                    new Thread(){
                        @Override
                        public void run() {
                            try {
-                               Response<HaoMa> bodyResponse = call.execute();
+                               Response<PhoneNumInfo> bodyResponse = call.execute();
                                final String body = bodyResponse.body().getResult().getCity();//获取返回体的字符串
                                MainActivity.this.runOnUiThread(new Runnable() {
                                    @Override
@@ -62,15 +60,15 @@ public class MainActivity extends AppCompatActivity {
                            }
                        }
                    }.start();
-
-              /*   call.enqueue(new Callback<HaoMa>() {
+/*
+                call.enqueue(new Callback<PhoneNumInfo>() {
                     @Override
-                    public void onResponse(Call<HaoMa> call, Response<HaoMa> response) {
+                    public void onResponse(Call<PhoneNumInfo> call, Response<PhoneNumInfo> response) {
                         mtext.setText(response.body().getResult().getCity());
                     }
 
                     @Override
-                    public void onFailure(Call<HaoMa> call, Throwable t) {
+                    public void onFailure(Call<PhoneNumInfo> call, Throwable t) {
                         mtext.setText(t.getMessage());
                     }
                 });*/
