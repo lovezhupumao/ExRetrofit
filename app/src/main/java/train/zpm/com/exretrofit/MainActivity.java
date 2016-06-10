@@ -18,8 +18,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
-
-
     private TextView mtext;
     private EditText meditview;
     private Button   mBtn;
